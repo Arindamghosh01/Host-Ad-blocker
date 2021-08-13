@@ -13,7 +13,7 @@ Clone this repository and run the main.py script with administrative privileges.
 python3 main.py
 ```
 
-## Temporarily disable hBlock
+## Temporarily disable Ad-Blocker
 
 Sometimes you may need to temporarily disable the ad-Blocker, a quick option is to restore the old hosts file without any blocked domains by running the following
 command:
