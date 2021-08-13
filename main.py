@@ -173,8 +173,8 @@ class Host:
         else:
             print("No Backup Found. Restoring to Default Windows Host file.")
 
-            default_host = textwrap.dedent(
-            """# Copyright (c) 1993-2009 Microsoft Corp.
+            default_host = textwrap.dedent("""
+            # Copyright (c) 1993-2009 Microsoft Corp.
             #
             # This is a sample HOSTS file used by Microsoft TCP/IP for Windows.
             #
