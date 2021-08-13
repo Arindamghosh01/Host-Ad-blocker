@@ -89,7 +89,7 @@ class Host:
         # TODO Add allowlist and denylist functionality
         allowlist = []
 
-        # Special
+        # Special Domain to check the working of hBlock
         denylist = ['hblock-check.molinero.dev']
 
         blocklist.update(denylist)
