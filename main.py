@@ -1,7 +1,3 @@
-"""
-Manipulate the host file to Block Ads, Malicious websites, phishing Websites
-Inspired by https://github.com/hectorm/hblock
-"""
 
 import requests
 import os
@@ -109,7 +105,7 @@ class Host:
         self.blocklist_count = len(blocklist)
 
         header = textwrap.dedent(f"""
-            # Generated with:  https://github.com/hectorm/hblock
+            # Generated with:  https://github.com/Arindamghosh01/Host-Ad-blocker
             # Total BlockListed Websites : {self.blocklist_count}
 
             # BEGIN HEADER
