@@ -6,8 +6,9 @@ A python script that gets a list of domains that serve ads, tracking scripts and
 
 ## Installation
 
-Clone this repository and run the main.py script with **administrative privileges**.
+Clone this repository, install the requirements.txt and run the main.py script with **administrative privileges**.
 ```
+pip install -r requirements.txt
 python3 main.py
 ```
 Refer this [Website](https://hblock.molinero.dev/) to check if you are set up with hBlock correctly.
