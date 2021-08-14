@@ -1,4 +1,3 @@
-
 import requests
 import os
 import subprocess, sys
@@ -37,7 +36,6 @@ class Host:
         p = subprocess.Popen(f"powershell.exe Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\services\Dnscache'\
                -Name 'Start' -Value 4", stdout=sys.stdout)
         p.communicate()
-
 
         urls = [
             "https://raw.githubusercontent.com/hectorm/hmirror/master/data/adaway.org/list.txt",
@@ -98,7 +96,6 @@ class Host:
         for url in urls:
             print(f"* {url}")
             data = requests.get(url)
-
             data = data.text.splitlines()
             blocklist.update(data)
 
@@ -140,10 +137,9 @@ class Host:
         src = os.getcwd()+"\\hosts"
         dst = "c:\\windows\\system32\\drivers\\etc"
 
-        hosts_dst = dst + "\\hosts"
-        if os.path.isfile(hosts_dst):
-            os.chmod(hosts_dst, 0o777)
-            os.remove(hosts_dst)
+        if os.path.isfile(linux_host_path):
+            os.chmod(linux_host_path, 0o777)
+            os.remove(linux_host_path)
 
         copy2(src, dst);
 
@@ -215,6 +211,7 @@ def parse_args():
                         help="Restore to default host file")
 
     return parser.parse_args()
+
 
 def main():
     args = parse_args()
