@@ -139,6 +139,12 @@ class Host:
     def copy_host_file(self):
         src = os.getcwd()+"\\hosts"
         dst = "c:\\windows\\system32\\drivers\\etc"
+
+        hosts_dst = dst + "\\hosts"
+        if os.path.isfile(hosts_dst):
+            os.chmod(hosts_dst, 0o777)
+            os.remove(hosts_dst)
+
         copy2(src, dst);
 
     def create_backup(self):
@@ -164,6 +170,36 @@ class Host:
             os.remove("hosts")
             os.chmod("hosts_backup", S_IREAD|S_IRGRP|S_IROTH)
             os.rename("hosts_backup", "hosts")
+        else:
+            print("No Backup Found. Restoring to Default Windows Host file.")
+
+            default_host = textwrap.dedent("""
+            # Copyright (c) 1993-2009 Microsoft Corp.
+            #
+            # This is a sample HOSTS file used by Microsoft TCP/IP for Windows.
+            #
+            # This file contains the mappings of IP addresses to host names. Each
+            # entry should be kept on an individual line. The IP address should
+            # be placed in the first column followed by the corresponding host name.
+            # The IP address and the host name should be separated by at least one
+            # space.
+            #
+            # Additionally, comments (such as these) may be inserted on individual
+            # lines or following the machine name denoted by a '#' symbol.
+            #
+            # For example:
+            #
+            #
+            #      102.54.94.97     rhino.acme.com          # source server
+            #       38.25.63.10     x.acme.com              # x client host
+
+            # localhost name resolution is handled within DNS itself.
+            #	127.0.0.1       localhost
+            #	::1             localhost""")
+
+            os.chmod("hosts", 0o777)
+            with open("hosts", 'w+') as f:
+                f.write( default_host)
 
         os.chdir(src)
 
